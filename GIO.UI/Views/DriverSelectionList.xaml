@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="GIO.UI.Views.DriverSelectionList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GIO.UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="0,0,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Style="{StaticResource GridHeader}">
+            <TextBlock Text="Drivers" Margin="64,23,0,0" Style="{StaticResource TextBlockHeader}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="#FFE5E5E5" Margin="0,0,0,0">
+            <ListView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="10 10"  BorderBrush="{StaticResource DHLYellow}" BorderThickness="1" ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}" MouseDoubleClick="ListView_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding DriverName}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="HaulierName">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding HaulierName}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="{StaticResource DHLGray08}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding SelectDriverCommand}"         Name="SelectDriverButton" Grid.Column="0" Content="Select" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10" Style="{StaticResource YellowButton}"/>
+            <Button Command="{Binding CreateDriverCommand}"         Grid.Column="1" Content="New" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10" Style="{StaticResource YellowButton}"/>
+            <Button Command="{Binding CancelSelectDriverCommand}"   Grid.Column="2" Content="Cancel" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 10" Style="{StaticResource RedButton}"/>
+        </Grid>
+    </Grid>
+</UserControl>

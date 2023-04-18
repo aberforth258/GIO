@@ -1,0 +1,21 @@
+﻿<Window x:Class="GIO_ANPR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GIO_ANPR.ViewModels"
+        xmlns:views="clr-namespace:GIO_ANPR.Views"
+        xmlns:vms="clr-namespace:GIO_ANPR.ViewModels"
+        mc:Ignorable="d"
+        Title="ANPR Scanner" Height="auto" Width="auto" WindowState="Maximized">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:ANPRScanViewModel}">
+                <views:ANPRScanView />
+            </DataTemplate>
+        </Grid.Resources>
+        
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>

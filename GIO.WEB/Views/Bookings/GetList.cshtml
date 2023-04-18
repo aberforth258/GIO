@@ -1,0 +1,81 @@
+﻿@model IEnumerable<GIO.WEB.Models.BookingWeb>
+
+@{
+   ViewBag.Title = "";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+    }  
+
+<h1 class="display-4">Booking list</h1>
+<p>
+    @Html.ActionLink("Create New", "CreateBooking", new {@class="btn btn-primary"})
+ </p>
+   <table class="table">
+    <tr>
+        <th hidden="hidden">
+            @Html.DisplayNameFor(model => model.BookingId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerReference)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindowStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindowEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleRegPlate)
+        </th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td hidden="hidden">
+        @Html.DisplayFor(modelItem => item.BookingId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerReference)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WindowStart)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WindowEnd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DriverName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.VehicleRegPlate)
+    </td>
+    <td>
+        @Html.ActionLink(
+            "Edit", 
+            "EditBooking",
+            "Bookings",
+            new{
+                bookingId = item.BookingId
+            },
+            new {@class="btn btn-primary btn-tableItem"}
+        )
+    </td>
+    <td>
+        @Html.ActionLink(
+            "Delete", 
+            "SubmitDeleteBooking",
+            "Bookings",
+            new{
+                bookingId = item.BookingId
+            },
+            new {@class="btn btn-primary btn-tableItem btn-delete"}
+        )
+    </td>
+</tr>
+    }
+
+</table>

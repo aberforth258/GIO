@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0-windows10.0.18362.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Forms\search_rgb_black.png" />
+    <None Remove="search_rgb_black.png" />
+    <None Remove="Views\search_rgb_black.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GIO\GIO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="search_rgb_black.png" />
+    <Resource Include="Views\search_rgb_black.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Forms\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Tesseract" Version="4.1.1" />
+    <PackageReference Include="Tesseract.Drawing" Version="4.1.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="GIO.UI.Views.CreateCountry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GIO.UI.Views"
+             mc:Ignorable="d" Height="auto" Width="auto">
+    
+    
+    <Grid Background="{StaticResource DHLGray08}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="{StaticResource DHLYellow}">
+            <TextBlock Text="Create Driver" Style="{StaticResource TextBlockHeader}"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,5,0,0" Grid.IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock  Text="Name"                     Grid.Row="0" Grid.Column="0" Margin="5 0" Style="{StaticResource TextBlockLabel}"/>
+            <TextBox    Text="{Binding CountryName}"    Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 5" VerticalAlignment="Top" Height="18" Width="120"/>
+            <TextBlock  Text="2-letter code"            Grid.Row="1" Grid.Column="0" Margin="5 0" Style="{StaticResource TextBlockLabel}"/>
+            <TextBox    Text="{Binding CountryCode2}"   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5 5" VerticalAlignment="Top" Height="18" Width="120"/>
+            <TextBlock  Text="3-letter code"            Grid.Row="2" Grid.Column="0" Margin="5 0" Style="{StaticResource TextBlockLabel}"/>
+            <TextBox    Text="{Binding CountryCode3}"   Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5 5" VerticalAlignment="Top" Height="18" Width="120"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding SubmitNewCountryCommand}" Grid.Column="0" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,4,0,0" Style="{StaticResource YellowButton}"/>
+            <Button Command="{Binding CancelNewCountryCommand}" Grid.Column="1" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,4,0,0" Style="{StaticResource RedButton}"/>
+        </Grid>
+    </Grid>
+</UserControl>
