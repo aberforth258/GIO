@@ -1,5 +1,0 @@
-﻿dotnet ef dbcontext scaffold "Data Source=tcp:pidpdapldnsazr.database.windows.net,1433;Initial Catalog=GIO;Integrated Security=False;User ID=Piotr;Password=IAmNotADog2022;Pooling=true;min pool size=1;connection timeout=30" Microsoft.EntityFrameworkCore.SqlServer -p GIO -o Models -f -c GIOContext --no-pluralize
-
-dotnet ef dbcontext scaffold "Data Source=tcp:pidpdapldnsazr.database.windows.net,1433;Initial Catalog=GIO;Integrated Security=False;User ID=Piotr;Password=IAmNotADog2022;Pooling=true;min pool size=1;connection timeout=30" Microsoft.EntityFrameworkCore.SqlServer -p GIO -o Models -f -c GIOContext
-
-Make sure model has no errors before running the scaffold
